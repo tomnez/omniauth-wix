@@ -9,14 +9,26 @@ module OmniAuth
 
       option :client_options, {
         site: 'https://www.wix.com',
-        authorize_url: 'https://www.wix.com/oauth/access'
+        authorize_url: 'oauth/access',
+        token_url: 'oauth/access'
       }
 
-      def callback_url
-        full_host + script_name + callback_path
-      end
+      # info do
+      #   {
+      #     :name => raw_info['name'],
+      #     :email => raw_info['email']
+      #   }
+      # end
+
+      # extra do
+      #   {
+      #     'raw_info' => raw_info
+      #   }
+      # end
+
+      # def raw_info
+      #   @raw_info ||= access_token.get('/me').parsed
+      # end
     end
   end
 end
-
-OmniAuth.config.add_camelization 'wix', 'Wix'
