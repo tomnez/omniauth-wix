@@ -1,7 +1,2 @@
 require "omniauth/wix/version"
-
-module Omniauth
-  module Wix
-    # Your code goes here...
-  end
-end
+require "omniauth/strategies/wix"
