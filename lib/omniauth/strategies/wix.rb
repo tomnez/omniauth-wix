@@ -14,6 +14,7 @@ module OmniAuth
       }
 
       option :authorize_params, {grant_type: 'authorization_code'}
+      option :provider_ignores_state, true
 
       def callback_url
         options[:callback_url]
