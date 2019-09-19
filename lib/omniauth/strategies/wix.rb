@@ -5,13 +5,19 @@ module OmniAuth
     class Wix < OmniAuth::Strategies::OAuth2
       option :name, "wix"
 
-      args [:grant_type, :client_id, :client_secret, :code]
+      args [:client_id, :client_secret]
 
       option :client_options, {
         site: 'https://www.wix.com',
         authorize_url: 'oauth/access',
         token_url: 'oauth/access'
       }
+
+      option :authorize_params, {grant_type: 'authorization_code'}
+
+      def callback_url
+        options[:callback_url]
+      end
 
       # info do
       #   {
