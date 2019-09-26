@@ -46,6 +46,15 @@ module OmniAuth
        }
       end
 
+      credentials do
+        {
+          token: access_token.token,
+          refresh_token: access_token.refresh_token,
+          expires: true,
+          expires_at: 10.minutes.from_now.to_i
+        }
+      end
+
       def raw_info
         @raw_info ||= access_token.params
       end
